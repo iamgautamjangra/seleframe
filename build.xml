@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="campaign-manager" default="run-test" basedir=".">
+	<!-- Properties-->
+   		<property name="classes" location="classes" />
+   		<property name="srcdir" location="src" />
+   		<property name="libdir" location="lib" />
+   		<property name="output" location="test-output" />
+		<property name="testngxmlfile" location="execute" />
+   		<property name="full-compile" value="true" />
+		<property name="docs" location="docs" />
+		<path id="classpath.base" />
+   		<path id="classpath.test">
+      		<fileset dir="${libdir}">
+         		<include name="**/*.jar" />
+      		</fileset>
+      		<pathelement location="${classes}" />
+      		<path refid="classpath.base" />
+  		 </path>
+  		 <target name="build-jar">
+			<jar destfile="${libdir}/selenium-fonantrix-core.jar" basedir="classes"
+		     excludes="**/app/**"/>
+  		 </target>
+	<!-- Define <testng> task -->
+	   <taskdef name="testng" classname="org.testng.TestNGAntTask">
+	      <classpath>
+	         <pathelement location="lib/testng-6.8.jar" />
+	      </classpath>
+	   </taskdef>
+	
+	<!-- Target defined for Clean Up-->
+   <target name="clean">
+      <delete verbose="${full-compile}">
+         <fileset dir="${classes}" includes="**/*.class" />
+      </delete>
+   </target>
+	
+	<!-- Target defined for compiling Java Classes , This target depends on Clean and JavaDoc Targets-->
+   <target name="compile" depends="clean">
+      <javac srcdir="${srcdir}" destdir="${classes}"  debug="on" encoding="UTF-8">
+         <classpath refid="classpath.test" />
+      </javac>
+   </target>
+	
+ 	<!-- Target defined for running the TestNG Task , This target depends on Compile Target-->
+   <target name="run-test" depends="compile">
+      <testng outputdir="${output}" classpathref="classpath.test">
+         <xmlfileset dir="${testngxmlfile}" includes="execute.xml" />
+      </testng>
+   </target>
+	
+	<!-- Target defined for generating JavaDoc-->
+	<target name="generateJavaDoc">
+			<mkdir dir="${docs}" />
+	    	<javadoc packagenames="selenium.fonantrix.core.*" sourcepath="${srcdir}"
+	          		  author="true"
+	                  version="true"
+	                  use="true"
+	  				  classpathref = "classpath.test"
+	              	  destdir="${docs}">
+	      			<bottom>
+	        			<![CDATA[<b> <center>SELENIUM AUTOMATION </center><b>]]>
+	      			</bottom>
+	  		  </javadoc>
+	  </target>
+
+</project>

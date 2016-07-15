@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Parallel Tests" verbose="1" parallel="tests"  preserve-order="class">
+    <listeners>
+    <listener class-name="selenium.fonantrix.core.listener.CustomReporter"/>  
+</listeners> 
+
+  <!-- Execution on Google Chrome -->
+	 
+	 <test name="CampaignManager_Chrome" thread-count="1">	
+	    <parameters>
+			<parameter name="platform" value="Vista" />
+			<parameter name="browser" value="chrome" />
+			<parameter name="version" value="5.1.7(7534.57.2)" />
+			<parameter name="Appurl" value="http://54.164.40.188/campaignmanager/login.html"/>
+			<parameter name="Nodeurl" value=""/>
+			<parameter name="ModuleName" value="CampaignManager_Chrome"/>
+		</parameters>
+		
+		<classes>
+			<class name="selenium.fonantrix.app.testcases.CampaignManager">
+				<methods>
+					<include name="Login_ValidateUI" />
+					<include name="HoustonClient_Page_ValidateUI" />
+					<include name="HoustonClient_Page_AdvertisersTable_ValidateUI" />
+					<include name="HoustonClientEdit_Page_Validate_Advertisers_Link" />
+					<include name="HoustonClient_Validate_TableDataWithAPI" />
+					<include name="EditClient_Advertisers_Validate_TableDataWithAPI" />
+					<include name="HoustonClient_Validate_APIWithDatabase" />
+					<include name="EditClient_Advertisers_Validate_APIWithDatabase" />
+					<include name="HoustonClient_Page_ValidateEditClientWithAPI" />
+				</methods>
+			</class>
+		</classes>
+	 </test>
+	 
+<!--   Execution on Internet Explorer -->
+	 	 
+	 <test name="CampaignManager_IE" thread-count="1">	
+	    <parameters>
+			<parameter name="platform" value="Vista" />
+			<parameter name="browser" value="internetexplorer" />
+			<parameter name="version" value="5.1.7(7534.57.2)" />
+			<parameter name="Appurl" value="http://54.164.40.188/campaignmanager/login.html"/>
+			<parameter name="Nodeurl" value=""/>
+			<parameter name="ModuleName" value="CampaignManager_IE"/>
+		</parameters>
+		
+		<classes>
+			<class name="selenium.fonantrix.app.testcases.CampaignManager">
+				<methods>
+					<include name="Login_ValidateUI" />
+					<include name="HoustonClient_Page_ValidateUI" />
+					<include name="HoustonClient_Page_AdvertisersTable_ValidateUI" />
+					<include name="HoustonClientEdit_Page_Validate_Advertisers_Link" />
+					<include name="HoustonClient_Validate_TableDataWithAPI" />
+					<include name="EditClient_Advertisers_Validate_TableDataWithAPI" />
+					<include name="HoustonClient_Validate_APIWithDatabase" />
+					<include name="EditClient_Advertisers_Validate_APIWithDatabase" />
+					<include name="HoustonClient_Page_ValidateEditClientWithAPI" />
+				</methods>
+			</class>
+		</classes>
+	 </test>
+	 
+<!-- 	 
+	  Execution on Apple Safari
+	
+	 <test name="CampaignManager_Safari" thread-count="1">	
+	    <parameters>
+			<parameter name="platform" value="Vista" />
+			<parameter name="browser" value="safari" />
+			<parameter name="version" value="5.1.7(7534.57.2)" />
+			<parameter name="Appurl" value="http://54.164.40.188/campaignmanager/login.html"/>
+			<parameter name="Nodeurl" value=""/>
+			<parameter name="ModuleName" value="CampaignManager_Safari"/>
+		</parameters>
+		
+		<classes>
+				<class name="selenium.fonantrix.app.testcases.CampaignManager">
+				<methods>
+					<include name="Login_ValidateUI" />
+					<include name="HoustonClient_Page_ValidateUI" />
+					<include name="HoustonClient_Page_AdvertisersTable_ValidateUI" />
+					<include name="HoustonClientEdit_Page_Validate_Advertisers_Link" />
+					<include name="HoustonClient_Validate_TableDataWithAPI" />
+					<include name="EditClient_Advertisers_Validate_TableDataWithAPI" />
+					<include name="HoustonClient_Validate_APIWithDatabase" />
+					<include name="EditClient_Advertisers_Validate_APIWithDatabase" />
+					<include name="HoustonClient_Page_ValidateEditClientWithAPI" />
+				</methods>
+			</class>
+		</classes>
+	 </test>
+	 
+	  Execution on Mozilla Firefox
+	  
+	 <test name="CampaignManager_Firefox" thread-count="1">	
+	    <parameters>
+			<parameter name="platform" value="Vista" />
+			<parameter name="browser" value="firefox" />
+			<parameter name="version" value="5.1.7(7534.57.2)" />
+			<parameter name="Appurl" value="http://54.164.40.188/campaignmanager/login.html"/>
+			<parameter name="Nodeurl" value=""/>
+			<parameter name="ModuleName" value="CampaignManager_Firefox"/>
+		</parameters>
+		
+		<classes>
+			<class name="selenium.fonantrix.app.testcases.CampaignManager">
+				<methods>
+					<include name="Login_ValidateUI" />
+					<include name="HoustonClient_Page_ValidateUI" />
+					<include name="HoustonClient_Page_AdvertisersTable_ValidateUI" />
+					<include name="HoustonClientEdit_Page_Validate_Advertisers_Link" />
+					<include name="HoustonClient_Validate_TableDataWithAPI" />
+					<include name="EditClient_Advertisers_Validate_TableDataWithAPI" />
+					<include name="HoustonClient_Validate_APIWithDatabase" />
+					<include name="EditClient_Advertisers_Validate_APIWithDatabase" />
+					<include name="HoustonClient_Page_ValidateEditClientWithAPI" />
+				</methods>
+			</class>
+		</classes>
+	 </test>
+	 
+	 Execution on Android Simulator
+	
+	   <test name="CampaignManager_Selendroid" thread-count="1">	
+	    <parameters>
+			<parameter name="platform" value="Selendroid" />
+			<parameter name="browser" value="Selendroid" />
+			<parameter name="version" value="5.1.7(7534.57.2)" />
+			<parameter name="Appurl" value="http://54.164.40.188/campaignmanager/login.html"/>
+			<parameter name="Nodeurl" value=""/>
+			<parameter name="ModuleName" value="CampaignManager_Selendroid"/>
+		</parameters>
+		
+		<classes>
+			<class name="selenium.fonantrix.app.testcases.CampaignManager">
+				<methods>
+					<include name="Login_ValidateUI" />
+					<include name="HoustonClient_Page_AdvertisersTable_ValidateUI" />
+					<include name="HoustonClientEdit_Page_Validate_Advertisers_Link" />
+				</methods>
+			</class>
+		</classes>
+	 </test> -->
+</suite> 
